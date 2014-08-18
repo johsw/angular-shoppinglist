@@ -1,0 +1,10 @@
+<h2>Indkøb</h2>
+<ul>
+  <li ng-repeat="item in items" ng-swipe-right="showActions = false" ng-swipe-right="showActions = true" ng-click="showActions = !showActions">
+    {{item.name}}, {{item.amount}} {{item.measure}} 
+    <span ng-show="showActions" ><button class="edit-item-button" ng-click="itemEdit(item.$id)">Edit</button>
+      <button class="delete-item-button" ng-click="itemDelete(item.$id)">Remove</button>
+    </span>
+  </li>
+</ul>
+<div jw-item-form></div>
