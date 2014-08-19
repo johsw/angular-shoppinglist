@@ -1,0 +1,41 @@
+<form name="addressForm" data-ng-submit="itemSave(itemForm.$valid)" novalidate autocomplete="off">
+  <div class="form-group has-feedback">
+     <label for="postalcode">Postnummer:</label>
+     <!-- Add lookup validation + return city -->
+     <input 
+      type="text"
+      ng-pattern="/^[0-9]{4}$/"
+      name="postalcode" class="form-control"
+      data-ng-model="address.postalcode"
+      required
+      autocomplete="off"
+      placeholder="fx 6100"
+     >
+     <span class="form-control-feedback">
+       <span class="glyphicon" ng-class="{true:'glyphicon-remove', false: 'glyphicon-ok'}[addressForm.postalcode.$invalid]" ></span>
+     </span>
+     <div class="label label-danger" data-ng-show="addressForm.postalcode.$error.pattern">Forkert postnummer!</div>
+  </div>
+  <div class="form-group">
+     <label for="address">Adresse{{address.cityLabel}}:</label>
+     <input
+      placeholder="vejnavn husnr, etage. dør, postnummer"
+      ng-disabled="addressForm.postalcode.$invalid"
+      type="text"
+      name="address"
+      class="form-control"
+      data-ng-model="address.address"
+      ng-change="updateTypeahead()"
+      ng-blur="addressFocus = false"
+      required
+     >
+     <div class="list-group" id="list-suggestions" ng-click="selectTypeahead($event)" ng-show="showSuggestions">
+       <a class="list-group-item" ng-repeat="suggestion in suggestions" data-suggestion="{{suggestion}}" data-type="huh">{{suggestion}}</a>
+     </div>
+  </div>
+  
+  <div class="form-group">
+     <input type="submit" id="submit" value="Save" />
+  </div>
+</form>
+{{ suggestions | json }}
