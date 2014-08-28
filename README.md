@@ -9,4 +9,5 @@ Angular frontend with a firebase backend. Syncronizes items to all clients
 
 
 *2) Adr*
+
 A danish postal adresse selector using dawa.aws.dk for typeahead lookup.
