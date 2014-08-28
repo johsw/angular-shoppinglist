@@ -1,7 +1,7 @@
 angular_demos
 =============
 
-Just some angular fun.
+Just some angular fun - work in progress.
 
 *1) Shopping List*
 
