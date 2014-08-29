@@ -20,15 +20,14 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
+      .when('/:listid', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
       .when('/add', {
-        templateUrl: 'views/add.html',
         controller: 'MainCtrl'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/add'
       });
   });
